@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <EnterRa2Bunker>Enter Bunker</EnterRa2Bunker>
+  <NowDirection>Enter/Exit Direction</NowDirection>
+  <ClickToChangeEnterDirection>Change Enter/Exit Direction</ClickToChangeEnterDirection>
+  <Everyone>Everyone Out!</Everyone>
+  <ExitBunker>Exit Bunker</ExitBunker>
+  <ClearTarget>Clear Target</ClearTarget>
+  <ClickToClearTarget>Click To Clear Target</ClickToClearTarget>
+  <ExitBunkerDesc>Select pawn to exit bunker</ExitBunkerDesc>
+  <Shooter>shooter</Shooter>
+
+</LanguageData>
