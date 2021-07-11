@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
   <name>Ra2Bunker (Continued)</name>
   <packageId>Mlie.Ra2Bunker</packageId>
@@ -8,6 +8,7 @@
     <li>1.0</li>
     <li>1.1</li>
     <li>1.2</li>
+    <li>1.3</li>
   </supportedVersions>
   <modDependencies>
     <li>
@@ -20,43 +21,34 @@
   <loadAfter>
     <li>brrainz.harmony</li>
   </loadAfter>
-  <description>Update of AKreedz风影s mod
+  <description>[img]https://i.imgur.com/WAEzk68.png[/img]
+Update of AKreedz风影s mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=1552894416
 This version is based on the 1.1-version by Scarjit
 https://steamcommunity.com/sharedfiles/filedetails/?id=2009500243
 
-[img]https://i.imgur.com/GYswkZ7.png[/img]
+[img]https://i.imgur.com/7Gzt3Rg.png[/img]
 
-Support-chat:
-https://invite.gg/mlie
-
-Non-steam version:
-https://github.com/emipa606/ERa2Bunker
+[table]
+	[tr]
+		[td][url=https://invite.gg/Mlie][img]https://i.imgur.com/zdzzBrc.png[/img][/url][/td]
+		[td][url=https://github.com/emipa606/Ra2Bunker][img]https://i.imgur.com/kTkpTOE.png[/img][/url][/td]
+	[/tr]
+[/table]
 	
---- Scarjits Description ---
-A simple Bunker MOD.
+[img]https://i.imgur.com/NOW7jU1.png[/img]
 
-Original Mod
-https://steamcommunity.com/sharedfiles/filedetails/?id=1552894416 by AKreedz风影
-
-Source Code
-https://github.com/Scarjit/RW_Ra2Bunker
-
-Changelog
-1.1
-- Updated for Rimworld Version 1.1
-- Fixed GameOver event, if all pawns are inside bunker.
-	
---- Original Description ---
 Code:
-http://www.mediafire.com/file/8oy1bb7n8ctp41w/Ra2Bunker.rar/file
+http://www.med
+iafire.com/file/8oy
+1bb7n8ctp41w/Ra2Bunker.rar/file
 (I gave up updating, anyone can use my source code)
 
 
 Add a bunker to rimworld.
 
 
-Bunker: people can enter it and fight with enemy.(6 pawns max)
+Bunker:  people can enter it and fight with enemy.(6 pawns max)
 (they should take range weapon before they enter the bunker)
 Can find in Security list.
 Now it supports more materials
@@ -69,5 +61,18 @@ The people in bunker will not get damage while fighting.
 (在此之前先让你的小人拿上远程武器)
 可以在防卫页面找到
 现在支持更多材料
-小人在碉堡里不会受到伤害</description>
+小人在碉堡里不会受到伤害
+
+
+[img]https://i.imgur.com/Rs6T6cr.png[/img]
+[list]
+[*] See if the the error persists if you just have this mod and its requirements active.
+[*] If not, try adding your other mods until it happens again.
+[*] Post your error-log using [url=https://steamcommunity.com/workshop/filedetails/?id=818773962]HugsLib[/url] and command Ctrl+F12
+[*] For best support, please use the Discord-channel for error-reporting.
+[*] Do not report errors by making a discussion-thread, I get no notification of that.
+[*] If you have the solution for a problem, please post it to the GitHub repository.
+[/list]
+</description>
 </ModMetaData>
+

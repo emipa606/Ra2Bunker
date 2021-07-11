@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Verse;
 using Verse.AI;
 
 namespace Ra2Bunker
@@ -16,29 +15,31 @@ namespace Ra2Bunker
         protected override IEnumerable<Toil> MakeNewToils()
         {
             this.FailOnDespawnedOrNull(TargetIndex.A);
-            yield return Toils_bunker.GotoThing(TargetIndex.A, PathEndMode.ClosestTouch);//Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.ClosestTouch);
- 
-            Toil enter = new Toil();
+            yield return
+                Toils_bunker.GotoThing(TargetIndex.A,
+                    PathEndMode.ClosestTouch); //Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.ClosestTouch);
+
+            var enter = new Toil();
             enter.initAction = delegate
             {
-                Pawn actor = enter.actor;
-                Building_Bunker pod = (Building_Bunker)actor.CurJob.targetA.Thing;
+                var actor = enter.actor;
+                var pod = (Building_Bunker) actor.CurJob.targetA.Thing;
+
                 void action()
                 {
                     if (pod.GetInner().InnerListForReading.Count >= pod.maxCount)
                     {
                         return;
                     }
-                    actor.DeSpawn(DestroyMode.Vanish);
-                    pod.TryAcceptThing(actor, true);
+
+                    actor.DeSpawn();
+                    pod.TryAcceptThing(actor);
                 }
 
                 action();
-                
             };
             enter.defaultCompleteMode = ToilCompleteMode.Instant;
             yield return enter;
-            yield break;
         }
     }
 }
