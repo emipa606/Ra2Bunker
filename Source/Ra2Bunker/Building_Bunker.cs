@@ -170,27 +170,24 @@ namespace Ra2Bunker
                 yield break;
             }
 
-            if (Toils_bunker.GetEnterOutLoc(this) != null)
+            var assignedPawns = innerContainer.Count;
+            var pawnList = new List<Pawn>();
+            foreach (var pawn in selPawns)
             {
-                var assignedPawns = innerContainer.Count;
-                var pawnList = new List<Pawn>();
-                foreach (var pawn in selPawns)
+                if (assignedPawns >= maxCount)
                 {
-                    if (assignedPawns >= maxCount)
-                    {
-                        yield break;
-                    }
-
-                    pawnList.Add(pawn);
+                    yield break;
                 }
 
-                void jobAction()
-                {
-                    MultiEnter(pawnList);
-                }
-
-                yield return new FloatMenuOption("EnterRa2Bunker".Translate(), jobAction);
+                pawnList.Add(pawn);
             }
+
+            void jobAction()
+            {
+                MultiEnter(pawnList);
+            }
+
+            yield return new FloatMenuOption("EnterRa2Bunker".Translate(), jobAction);
         }
 
         private void MultiEnter(List<Pawn> pawnsToEnter)
@@ -215,26 +212,17 @@ namespace Ra2Bunker
                 yield break;
             }
 
-            if (Toils_bunker.GetEnterOutLoc(this) == null
-            ) //!myPawn.CanReach(this, PathEndMode.InteractionCell, Danger.Deadly, false, TraverseMode.ByPawn))
-            {
-                var failer = new FloatMenuOption("CannotUseNoPath".Translate(), null);
-                yield return failer;
-            }
-            else
-            {
-                var jobDef = DefDatabase<JobDef>.GetNamed("EnterRa2Bunker"); //JobDefOf.EnterCryptosleepCasket;
-                string jobStr = "EnterRa2Bunker".Translate();
+            var jobDef = DefDatabase<JobDef>.GetNamed("EnterRa2Bunker"); //JobDefOf.EnterCryptosleepCasket;
+            string jobStr = "EnterRa2Bunker".Translate();
 
-                void jobAction()
-                {
-                    var job = new Job(jobDef, this);
-                    myPawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
-                }
-
-                yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption(jobStr, jobAction),
-                    myPawn, this);
+            void jobAction()
+            {
+                var job = new Job(jobDef, this);
+                myPawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
             }
+
+            yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption(jobStr, jobAction),
+                myPawn, this);
         }
 
         // Token: 0x06002515 RID: 9493 RVA: 0x00116FCC File Offset: 0x001153CC

@@ -1,5 +1,8 @@
 # Changelog for Ra2Bunker
 
+1.0.2.0 - The bunker can now use forced targeting
+
+
 1.0.1.0 - Mod updated for 1.3 and passed autotests
 
 

@@ -3,7 +3,7 @@ using Verse;
 
 namespace Ra2Bunker
 {
-    public class Verb_Bunker : Verb_LaunchProjectile
+    public class Verb_Bunker : Verb_Shoot
     {
         private Building_Bunker bunker;
         private List<Verb> verbss;
@@ -32,6 +32,7 @@ namespace Ra2Bunker
                 pawn.TryGetAttackVerb(currentTarget.Thing).caster = pawn;
             }
         }
+
 
         protected override bool TryCastShot()
         {
