@@ -69,9 +69,6 @@
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <soundInteract>Interact_Rifle</soundInteract>
-    <destroyOnDrop>true</destroyOnDrop>
-    <tradeability>None</tradeability>
-    <useHitPoints>false</useHitPoints>
     <weaponTags Inherit="false">
       <li>ATurretGun</li>
     </weaponTags>

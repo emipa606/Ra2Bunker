@@ -1,25 +1,18 @@
 # Ra2Bunker
 
-![Image](https://i.imgur.com/WAEzk68.png)
+![Image](https://i.imgur.com/buuPQel.png)
 
 Update of AKreedz风影s mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=1552894416
 This version is based on the 1.1-version by Scarjit
 https://steamcommunity.com/sharedfiles/filedetails/?id=2009500243
 
-![Image](https://i.imgur.com/7Gzt3Rg.png)
+- Added forced target-gizmo
 
+![Image](https://i.imgur.com/pufA0kM.png)
 
-[table]
-	[tr]
-		[td]https://invite.gg/Mlie]![Image](https://i.imgur.com/zdzzBrc.png)
-[/td]
-		[td]https://github.com/emipa606/Ra2Bunker]![Image](https://i.imgur.com/kTkpTOE.png)
-[/td]
-	[/tr]
-[/table]
 	
-![Image](https://i.imgur.com/NOW7jU1.png)
+![Image](https://i.imgur.com/Z4GOv8H.png)
 
 
 Code:
@@ -48,7 +41,7 @@ The people in bunker will not get damage while fighting.
 小人在碉堡里不会受到伤害
 
 
-![Image](https://i.imgur.com/Rs6T6cr.png)
+![Image](https://i.imgur.com/PwoNOj4.png)
 
 
 
@@ -58,7 +51,6 @@ The people in bunker will not get damage while fighting.
 -  For best support, please use the Discord-channel for error-reporting.
 -  Do not report errors by making a discussion-thread, I get no notification of that.
 -  If you have the solution for a problem, please post it to the GitHub repository.
-
 
 
 

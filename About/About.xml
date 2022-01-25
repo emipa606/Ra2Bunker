@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
   <name>Ra2Bunker (Continued)</name>
   <packageId>Mlie.Ra2Bunker</packageId>
@@ -21,13 +21,15 @@
   <loadAfter>
     <li>brrainz.harmony</li>
   </loadAfter>
-  <description>[img]https://i.imgur.com/WAEzk68.png[/img]
+  <description>[img]https://i.imgur.com/buuPQel.png[/img]
 Update of AKreedz风影s mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=1552894416
 This version is based on the 1.1-version by Scarjit
 https://steamcommunity.com/sharedfiles/filedetails/?id=2009500243
 
-[img]https://i.imgur.com/7Gzt3Rg.png[/img]
+- Added forced target-gizmo
+
+[img]https://i.imgur.com/pufA0kM.png[/img]
 
 [table]
 	[tr]
@@ -36,7 +38,7 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=2009500243
 	[/tr]
 [/table]
 	
-[img]https://i.imgur.com/NOW7jU1.png[/img]
+[img]https://i.imgur.com/Z4GOv8H.png[/img]
 
 Code:
 http://www.med
@@ -64,7 +66,7 @@ The people in bunker will not get damage while fighting.
 小人在碉堡里不会受到伤害
 
 
-[img]https://i.imgur.com/Rs6T6cr.png[/img]
+[img]https://i.imgur.com/PwoNOj4.png[/img]
 [list]
 [*] See if the the error persists if you just have this mod and its requirements active.
 [*] If not, try adding your other mods until it happens again.
@@ -73,6 +75,5 @@ The people in bunker will not get damage while fighting.
 [*] Do not report errors by making a discussion-thread, I get no notification of that.
 [*] If you have the solution for a problem, please post it to the GitHub repository.
 [/list]
-
 </description>
 </ModMetaData>
