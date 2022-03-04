@@ -49,16 +49,16 @@
     </costList>
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
     <designationCategory>Security</designationCategory>
-    <specialDisplayRadius>30</specialDisplayRadius>
+    <!-- <specialDisplayRadius>30</specialDisplayRadius> -->
     <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
     <building>
       <ai_combatDangerous>true</ai_combatDangerous>
       <turretGunDef>Gun_BunkerGun</turretGunDef>
-      <turretBurstCooldownTime>2.2</turretBurstCooldownTime>
+      <turretBurstCooldownTime>0</turretBurstCooldownTime>
     </building>
-    <placeWorkers>
-      <li>Ra2Bunker.PlaceWorker_ShowBunkerRadius</li>
-    </placeWorkers>
+    <!-- <placeWorkers> -->
+    <!-- <li>Ra2Bunker.PlaceWorker_ShowBunkerRadius</li> -->
+    <!-- </placeWorkers> -->
     <designationHotKey>Misc2</designationHotKey>
   </ThingDef>
   <ThingDef ParentName="BaseWeaponTurret">
@@ -78,13 +78,13 @@
         <hasStandardCommand>true</hasStandardCommand>
         <defaultProjectile>Bullet_MiniTurret</defaultProjectile>
         <warmupTime>0</warmupTime>
-        <range>30</range>
-        <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
-        <burstShotCount>3</burstShotCount>
-        <soundCast>GunShotA</soundCast>
-        <soundCastTail>GunTail_Light</soundCastTail>
+        <range>0</range>
+        <ticksBetweenBurstShots>0</ticksBetweenBurstShots>
+        <burstShotCount>0</burstShotCount>
+        <!-- <soundCast>GunShotA</soundCast> -->
+        <!-- <soundCastTail>GunTail_Light</soundCastTail> -->
         <muzzleFlashScale>0</muzzleFlashScale>
-        <consumeFuelPerShot>1</consumeFuelPerShot>
+        <!-- <consumeFuelPerShot>1</consumeFuelPerShot> -->
       </li>
     </verbs>
   </ThingDef>

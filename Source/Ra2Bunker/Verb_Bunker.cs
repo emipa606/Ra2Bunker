@@ -1,67 +1,135 @@
 ﻿using System.Collections.Generic;
+using RimWorld;
 using Verse;
 
-namespace Ra2Bunker
-{
-    public class Verb_Bunker : Verb_Shoot
-    {
-        private Building_Bunker bunker;
-        private List<Verb> verbss;
+namespace Ra2Bunker;
 
-        public override void Reset()
+public class Verb_Bunker : Verb_Shoot
+{
+    private Building_Bunker bunker;
+    private List<Verb> verbss;
+
+    private Dictionary<Pawn, int> warmupDictionary;
+
+    public override void Reset()
+    {
+        base.Reset();
+        bunker = (Building_Bunker)caster;
+        warmupDictionary = new Dictionary<Pawn, int>();
+    }
+
+    public void ResetVerb()
+    {
+        if (bunker == null)
         {
-            base.Reset();
-            bunker = (Building_Bunker) caster;
+            bunker = (Building_Bunker)caster;
         }
 
-        public void ResetVerb()
+        warmupDictionary = new Dictionary<Pawn, int>();
+        ((Building_Bunker)caster).UpdateRange();
+
+        foreach (var pawn in bunker.GetInner().InnerListForReading)
         {
-            if (bunker == null)
+            if (pawn.TryGetAttackVerb(currentTarget.Thing) == null)
             {
-                bunker = (Building_Bunker) caster;
+                continue;
             }
 
-            foreach (var pawn in bunker.GetInner().InnerListForReading)
+            pawn.TryGetAttackVerb(currentTarget.Thing).caster = pawn;
+        }
+    }
+
+
+    protected override bool TryCastShot()
+    {
+        verbss = new List<Verb>();
+
+        if (bunker == null)
+        {
+            bunker = (Building_Bunker)caster;
+        }
+
+        var pawns = bunker.GetInner().InnerListForReading;
+        var newDictionary = new Dictionary<Pawn, int>();
+        if (warmupDictionary == null)
+        {
+            warmupDictionary = new Dictionary<Pawn, int>();
+        }
+        else
+        {
+            foreach (var pawn in pawns)
             {
-                if (pawn.TryGetAttackVerb(currentTarget.Thing) == null)
+                if (!warmupDictionary.ContainsKey(pawn))
                 {
                     continue;
                 }
 
-                //Log.Warning(pawn.TryGetAttackVerb(this.currentTarget.Thing).TryStartCastOn(this.currentTarget) + "OH" + pawn.Name);
-                pawn.TryGetAttackVerb(currentTarget.Thing).caster = pawn;
+                newDictionary[pawn] = warmupDictionary[pawn];
             }
         }
 
+        warmupDictionary = newDictionary;
 
-        protected override bool TryCastShot()
+        foreach (var pawn in pawns)
         {
-            verbss = new List<Verb>();
-
-            if (bunker == null)
+            if (pawn.TryGetAttackVerb(currentTarget.Thing) == null)
             {
-                bunker = (Building_Bunker) caster;
+                continue;
             }
 
-            foreach (var pawn in bunker.GetInner().InnerListForReading)
+            var verb = pawn.TryGetAttackVerb(currentTarget.Thing);
+            if (checkWarmup(pawn, verb))
             {
-                if (pawn.TryGetAttackVerb(currentTarget.Thing) != null)
-                {
-                    //Log.Warning(pawn.TryGetAttackVerb(this.currentTarget.Thing).TryStartCastOn(this.currentTarget) + "OH" + pawn.Name);
-                    verbss.Add(pawn.TryGetAttackVerb(currentTarget.Thing));
-                }
+                verbss.Add(verb);
             }
-
-            foreach (var vb in verbss)
-            {
-                // Thing tmpCaster = vb.caster;
-                vb.caster = caster;
-                var unused = vb.TryStartCastOn(currentTarget);
-
-                //vb.caster = tmpCaster;
-            }
-
-            return true;
         }
+
+        //foreach (var pair in warmupDictionary)
+        //{
+        //    Log.Message($"{GenTicks.TicksGame} - {pair.Key}: {pair.Value}");
+        //}
+
+        if (!verbss.Any())
+        {
+            return false;
+        }
+
+        //Log.Message($"Found {verbss.Count} verbs");
+        foreach (var vb in verbss)
+        {
+            //Log.Message($"{vb}");
+            vb.caster = caster;
+            //vb.WarmupComplete();
+            vb.TryStartCastOn(currentTarget);
+        }
+
+        return true;
+    }
+
+    private bool checkWarmup(Pawn shooter, Verb attackVerb)
+    {
+        if (attackVerb.IsMeleeAttack)
+        {
+            return false;
+        }
+
+        if (warmupDictionary == null)
+        {
+            warmupDictionary = new Dictionary<Pawn, int>();
+        }
+
+        if (warmupDictionary.ContainsKey(shooter) && warmupDictionary[shooter] > 0)
+        {
+            warmupDictionary[shooter] -= 10;
+            return false;
+        }
+
+        var returnValue = warmupDictionary.ContainsKey(shooter);
+
+        var statValue = shooter.GetStatValue(StatDefOf.AimingDelayFactor);
+        warmupDictionary[shooter] = (attackVerb.verbProps.warmupTime * statValue).SecondsToTicks() +
+                                    attackVerb.verbProps.AdjustedCooldownTicks(attackVerb, shooter);
+
+        return returnValue;
     }
 }
