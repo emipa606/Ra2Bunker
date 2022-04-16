@@ -1,5 +1,8 @@
 # Changelog for Ra2Bunker
 
+1.3.3 - Added Pawn-button to inspect pawns inside of the bunker
+
+
 1.3.2 - Bunkers should now use warmup/cooldown times and ranges of the weapons inside
 
 

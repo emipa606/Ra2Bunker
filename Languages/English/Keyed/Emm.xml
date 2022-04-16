@@ -5,6 +5,7 @@
   <ClickToChangeEnterDirection>Change Enter/Exit Direction</ClickToChangeEnterDirection>
   <Everyone>Everyone Out!</Everyone>
   <ExitBunker>Exit Bunker</ExitBunker>
+  <TabBunkerContents>Pawns</TabBunkerContents>
   <ClearTarget>Clear Target</ClearTarget>
   <ClickToClearTarget>Click To Clear Target</ClickToClearTarget>
   <ExitBunkerDesc>Select pawn to exit bunker</ExitBunkerDesc>

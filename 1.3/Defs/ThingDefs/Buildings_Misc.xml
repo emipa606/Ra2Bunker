@@ -47,6 +47,9 @@
     <costList>
       <Steel>300</Steel>
     </costList>
+    <inspectorTabs>
+      <li>Ra2Bunker.ITab_Bunker</li>
+    </inspectorTabs>
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
     <designationCategory>Security</designationCategory>
     <!-- <specialDisplayRadius>30</specialDisplayRadius> -->
