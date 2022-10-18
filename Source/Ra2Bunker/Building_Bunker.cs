@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -83,11 +84,11 @@ public class Building_Bunker : Building_TurretGun, IThingHolder
         Scribe_Deep.Look(ref innerContainer, "innerContainer", this);
     }
 
-    public override bool ClaimableBy(Faction fac)
+    public override bool ClaimableBy(Faction fac, StringBuilder reason = null)
     {
         if (!innerContainer.Any)
         {
-            return base.ClaimableBy(fac);
+            return base.ClaimableBy(fac, reason);
         }
 
         foreach (var pawn in innerContainer)
