@@ -10,12 +10,11 @@ namespace Ra2Bunker;
 
 public class Building_Bunker : Building_TurretGun, IThingHolder
 {
+    public readonly int maxCount = 6;
     public int direc;
 
 
     protected ThingOwner<Pawn> innerContainer;
-
-    public int maxCount = 6;
 
     public Building_Bunker()
     {
@@ -188,12 +187,13 @@ public class Building_Bunker : Building_TurretGun, IThingHolder
             pawnList.Add(pawn);
         }
 
+        yield return new FloatMenuOption("EnterRa2Bunker".Translate(), jobAction);
+        yield break;
+
         void jobAction()
         {
             MultiEnter(pawnList);
         }
-
-        yield return new FloatMenuOption("EnterRa2Bunker".Translate(), jobAction);
     }
 
     private void MultiEnter(List<Pawn> pawnsToEnter)
@@ -221,14 +221,15 @@ public class Building_Bunker : Building_TurretGun, IThingHolder
         var jobDef = DefDatabase<JobDef>.GetNamed("EnterRa2Bunker"); //JobDefOf.EnterCryptosleepCasket;
         string jobStr = "EnterRa2Bunker".Translate();
 
+        yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption(jobStr, jobAction),
+            myPawn, this);
+        yield break;
+
         void jobAction()
         {
             var job = new Job(jobDef, this);
             myPawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
         }
-
-        yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption(jobStr, jobAction),
-            myPawn, this);
     }
 
     public override IEnumerable<Gizmo> GetGizmos()
@@ -256,7 +257,7 @@ public class Building_Bunker : Building_TurretGun, IThingHolder
             yield return eject;
         }
 
-        string[] direcs = { "North", "East", "South", "West" };
+        string[] direcs = ["North", "East", "South", "West"];
         var direction = new Command_Action
         {
             defaultLabel = $"{"NowDirection".Translate()}\n{direcs[direc]}",

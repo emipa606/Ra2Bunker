@@ -6,7 +6,7 @@ namespace Ra2Bunker;
 
 public class ITab_Bunker : ITab_ContentsBase
 {
-    private readonly List<Thing> listInt = new List<Thing>();
+    private readonly List<Thing> listInt = [];
 
     public ITab_Bunker()
     {

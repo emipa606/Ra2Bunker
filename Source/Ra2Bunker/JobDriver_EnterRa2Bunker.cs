@@ -23,6 +23,9 @@ public class JobDriver_EnterRa2Bunker : JobDriver
             var actor = enter.actor;
             var pod = (Building_Bunker)actor.CurJob.targetA.Thing;
 
+            action();
+            return;
+
             void action()
             {
                 if (pod.GetInner().InnerListForReading.Count >= pod.maxCount)
@@ -33,8 +36,6 @@ public class JobDriver_EnterRa2Bunker : JobDriver
                 actor.DeSpawn();
                 pod.TryAcceptThing(actor);
             }
-
-            action();
         };
         enter.defaultCompleteMode = ToilCompleteMode.Instant;
         yield return enter;

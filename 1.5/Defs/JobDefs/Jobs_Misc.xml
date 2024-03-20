@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <JobDef>
+    <defName>EnterRa2Bunker</defName>
+    <driverClass>Ra2Bunker.JobDriver_EnterRa2Bunker</driverClass>
+    <reportString>entering bunker.</reportString>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+</Defs>

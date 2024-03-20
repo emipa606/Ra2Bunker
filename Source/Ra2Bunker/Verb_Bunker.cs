@@ -42,7 +42,7 @@ public class Verb_Bunker : Verb_Shoot
 
     protected override bool TryCastShot()
     {
-        verbss = new List<Verb>();
+        verbss = [];
 
         if (bunker == null)
         {
@@ -59,12 +59,12 @@ public class Verb_Bunker : Verb_Shoot
         {
             foreach (var pawn in pawns)
             {
-                if (!warmupDictionary.ContainsKey(pawn))
+                if (!warmupDictionary.TryGetValue(pawn, out var value))
                 {
                     continue;
                 }
 
-                newDictionary[pawn] = warmupDictionary[pawn];
+                newDictionary[pawn] = value;
             }
         }
 
