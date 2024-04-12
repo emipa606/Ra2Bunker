@@ -35,6 +35,7 @@
     <tickerType>Normal</tickerType>
     <passability>Impassable</passability>
     <fillPercent>0.4</fillPercent>
+    <disableImpassableShotOverConfigError>true</disableImpassableShotOverConfigError>
     <hasTooltip>true</hasTooltip>
     <blockWind>true</blockWind>
     <blockLight>true</blockLight>

@@ -1,5 +1,8 @@
 # Changelog for Ra2Bunker
 
+1.5.1 - Fixed error about impassable building
+
+
 1.5.0 - Mod updated for 1.5 and passed autotests
 
 
