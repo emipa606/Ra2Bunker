@@ -9,7 +9,7 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=2009500243
 
 - Added forced target-gizmo
 
-![Image](https://i.imgur.com/pufA0kM.png)
+![Image](https://i.imgur.com/CN9Rs5X.png)
 
 	
 ![Image](https://i.imgur.com/Z4GOv8H.png)
